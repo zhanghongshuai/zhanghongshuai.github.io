@@ -106,17 +106,17 @@
 
 
 
-<meta name="description" content="稍等一下，写完这篇文章就去搬砖">
+<meta name="description" content="Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma - which is living with the results of other people’s thinking. Don">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dazeze">
+<meta property="og:title" content="关于作者">
 <meta property="og:url" content="https://zhanghongshuai.github.io/about/index.html">
 <meta property="og:site_name" content="Dazeze">
-<meta property="og:description" content="稍等一下，写完这篇文章就去搬砖">
+<meta property="og:description" content="Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma - which is living with the results of other people’s thinking. Don’t let the noise of other’s opinions d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-23T09:50:03.409Z">
+<meta property="og:updated_time" content="2017-11-24T12:34:33.752Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dazeze">
-<meta name="twitter:description" content="稍等一下，写完这篇文章就去搬砖">
+<meta name="twitter:title" content="关于作者">
+<meta name="twitter:description" content="Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma - which is living with the results of other people’s thinking. Don’t let the noise of other’s opinions d">
 
 
 
@@ -152,7 +152,7 @@
 
 
 
-  <title> | Dazeze</title>
+  <title>关于作者 | Dazeze</title>
   
 
 
@@ -292,7 +292,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
+	<h1 class="post-title" itemprop="name headline">关于作者</h1>
 
 
 
@@ -304,7 +304,16 @@
       <div class="post-body">
         
         
-          
+          <p><br></p>
+<blockquote>
+<p>Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma - which is living with the results of other people’s thinking. Don’t let the noise of other’s opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition. They somehow already know what you truly want to become. Everything else is secondary.<br><br></p>
+<p align="right">- Steve Jobs</p>
+
+
+
+
+</blockquote>
+
         
       </div>
       
@@ -322,6 +331,11 @@
 
 
           
+  
+       
+         <div onclick="ShowGitment()" id="gitment-display-button">显示评论</div>
+         <div id="gitment-container" style="display:none"></div>
+       
   
 
 
@@ -583,6 +597,32 @@
 
 
 
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           function ShowGitment(){
+               document.getElementById("gitment-display-button").style.display = "none";
+               document.getElementById("gitment-container").style.display = "block";
+               var gitment = new Gitment({
+                   id: document.location.href, 
+                   owner: 'kungfupandazhs@gmail.com',
+                   repo: 'zhanghongshuai.github.io',
+                   oauth: {
+                       client_id: '7cd88c12f0f8435660df',
+                       client_secret: 'b7a0cb18b141e94519fd9daa795d72964c7d6426',
+                   }});
+               gitment.render('gitment-container');
+           }
+       </script>
+   
 
 
 

@@ -862,6 +862,32 @@
 
 
 
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           function ShowGitment(){
+               document.getElementById("gitment-display-button").style.display = "none";
+               document.getElementById("gitment-container").style.display = "block";
+               var gitment = new Gitment({
+                   id: document.location.href, 
+                   owner: 'kungfupandazhs@gmail.com',
+                   repo: 'zhanghongshuai.github.io',
+                   oauth: {
+                       client_id: '7cd88c12f0f8435660df',
+                       client_secret: 'b7a0cb18b141e94519fd9daa795d72964c7d6426',
+                   }});
+               gitment.render('gitment-container');
+           }
+       </script>
+   
+
+
+
   
 
 
