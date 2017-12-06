@@ -106,18 +106,18 @@
 
 
 
-<meta name="description" content="稍等一下，写完这篇文章就去搬砖">
+<meta name="description" content="说在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;网上有各种学习Git的教程，而且有的教程很详细，自己之前学过许多Git相关的教程，但是都没有系统地学完，我的想法是：对于Git这样的工具而言，先学习基本的用法和实现原理，一些不常见的命令到用到的时候学一下就行，所以可以不系统的学完所">
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习笔记（一）">
 <meta property="og:url" content="https://zhanghongshuai.github.io/2017/12/06/Git学习笔记（一）/index.html">
 <meta property="og:site_name" content="Dazeze">
-<meta property="og:description" content="稍等一下，写完这篇文章就去搬砖">
+<meta property="og:description" content="说在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;网上有各种学习Git的教程，而且有的教程很详细，自己之前学过许多Git相关的教程，但是都没有系统地学完，我的想法是：对于Git这样的工具而言，先学习基本的用法和实现原理，一些不常见的命令到用到的时候学一下就行，所以可以不系统的学完所有的命令。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;感觉每天搬砖，日复一日，没什么意思，本着学习才是硬道理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-06T10:27:01.722Z">
+<meta property="og:updated_time" content="2017-12-06T15:23:03.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记（一）">
-<meta name="twitter:description" content="稍等一下，写完这篇文章就去搬砖">
+<meta name="twitter:description" content="说在前面&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;网上有各种学习Git的教程，而且有的教程很详细，自己之前学过许多Git相关的教程，但是都没有系统地学完，我的想法是：对于Git这样的工具而言，先学习基本的用法和实现原理，一些不常见的命令到用到的时候学一下就行，所以可以不系统的学完所有的命令。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;感觉每天搬砖，日复一日，没什么意思，本着学习才是硬道理">
 
 
 
@@ -400,7 +400,10 @@
       
 
       
-        
+        <h4 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;网上有各种学习Git的教程，而且有的教程很详细，自己之前学过许多Git相关的教程，但是都没有系统地学完，我的想法是：对于Git这样的工具而言，先学习基本的用法和实现原理，一些不常见的命令到用到的时候学一下就行，所以可以不系统的学完所有的命令。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;感觉每天搬砖，日复一日，没什么意思，本着学习才是硬道理的想法，就想系统的学习一下Git，于是就将学习过程中的点都记下来，写成《Git学习笔记》一系列文章。</p>
+<h4 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Git的历史、Git的来源与演变，详见<a href="https://zh.wikipedia.org/wiki/Git" target="_blank" rel="noopener">维基百科</a>，Git是一个很有用也很好用的工具，Git可以使很多工作变得轻而易举，所以学习Git是很重要的，也是很有必要的。如果你有时间，可以遛一下这些文章，权当温故而知新，说不定有新的见解，如果有错误的地方，还望不吝指正呀~</p>
+<h5 id="Git的作用"><a href="#Git的作用" class="headerlink" title="Git的作用"></a>Git的作用</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;一句话：版本控制工具。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;兹要是平常工作中涉及到版本管理，就应该考虑使用Git来进行版本控制。除了开发工作外，其他的职位也总是会涉及到版本管理的，譬如，一版产品可能有不同的设计原型，不同的原型之间可能是演进、合并的关系，如何追踪各个原型之间的演进关系？毕业论文改稿，写了一版又一版，版与版之间有哪些差别，如何能很好的定位这些差别，进而更好的优化论文的结构和内容？等等，总之，学会使用Git，走遍天下都不怕。废话到此为止，开始正文。</p>
+
       
     </div>
     
@@ -525,8 +528,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -600,6 +612,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#说在前面"><span class="nav-number">1.</span> <span class="nav-text">说在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git简介"><span class="nav-number">2.</span> <span class="nav-text">Git简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Git的作用"><span class="nav-number">2.1.</span> <span class="nav-text">Git的作用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
