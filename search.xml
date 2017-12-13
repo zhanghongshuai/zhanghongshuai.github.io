@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[坚持早起]]></title>
+    <url>%2F2017%2F12%2F13%2F%E5%9D%9A%E6%8C%81%E6%97%A9%E8%B5%B7%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>自言自语</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Git学习笔记（二）]]></title>
     <url>%2F2017%2F12%2F08%2FGit%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[git configgit config是安装好git后第一个要学的命令]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -64,7 +72,7 @@
   <entry>
     <title><![CDATA[就很丧]]></title>
     <url>%2F2017%2F11%2F25%2F%E5%B0%B1%E5%BE%88%E4%B8%A7%2F</url>
-    <content type="text"><![CDATA[不知道为了什么，忧愁它围绕着我]]></content>
+    <content type="text"><![CDATA[（2017.11.25）不知道为了什么，忧愁它围绕着我（2017.12.11）闲来无聊玩王者，不如看会儿书（2017.12.13）坚持早起]]></content>
       <categories>
         <category>自言自语</category>
       </categories>
