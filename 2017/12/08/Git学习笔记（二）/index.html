@@ -106,18 +106,18 @@
 
 
 
-<meta name="description" content="稍等一下，写完这篇文章就去搬砖">
+<meta name="description" content="git diff含义及形式用来比较文件之间、提交之间、git blob之间的不同，不同的形式可以达到不同比较的效果。12345git diff [options] [&amp;lt;commit&amp;gt;] [--] [&amp;lt;path&amp;gt;…​]git diff [options] --cac">
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习笔记（二）">
 <meta property="og:url" content="https://zhanghongshuai.github.io/2017/12/08/Git学习笔记（二）/index.html">
 <meta property="og:site_name" content="Dazeze">
-<meta property="og:description" content="稍等一下，写完这篇文章就去搬砖">
+<meta property="og:description" content="git diff含义及形式用来比较文件之间、提交之间、git blob之间的不同，不同的形式可以达到不同比较的效果。12345git diff [options] [&amp;lt;commit&amp;gt;] [--] [&amp;lt;path&amp;gt;…​]git diff [options] --cached [&amp;lt;commit&amp;gt;] [--] [&amp;lt;path&amp;gt;…​]git diff [opti">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-13T02:49:06.340Z">
+<meta property="og:updated_time" content="2017-12-14T02:50:03.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记（二）">
-<meta name="twitter:description" content="稍等一下，写完这篇文章就去搬砖">
+<meta name="twitter:description" content="git diff含义及形式用来比较文件之间、提交之间、git blob之间的不同，不同的形式可以达到不同比较的效果。12345git diff [options] [&amp;lt;commit&amp;gt;] [--] [&amp;lt;path&amp;gt;…​]git diff [options] --cached [&amp;lt;commit&amp;gt;] [--] [&amp;lt;path&amp;gt;…​]git diff [opti">
 
 
 
@@ -434,7 +434,18 @@
       
 
       
-        
+        <h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><h5 id="含义及形式"><a href="#含义及形式" class="headerlink" title="含义及形式"></a>含义及形式</h5><p>用来比较文件之间、提交之间、git blob之间的不同，不同的形式可以达到不同比较的效果。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]</span><br><span class="line">git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​]</span><br><span class="line">git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​]</span><br><span class="line">git diff [options] &lt;blob&gt; &lt;blob&gt;</span><br><span class="line">git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt;</span><br></pre></td></tr></table></figure></p>
+<p>所有形式中都有<code>[options]</code>参数，这个参数用来设置展示的样式，在第二部分展开常见参数的叙述。<br>所有形式中的<code>[--]</code>是用来指定要比较的文件的，可以省略，但是，强烈建议：<strong>不要省略</strong>。如果出现文件名称和某个tag的名字一样，在省略<code>[--]</code>的情况下会造成歧义。<br>下面分别说明这几种形式的含义：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]</span><br></pre></td></tr></table></figure></p>
+<p>这种形式用来比较当前工作区的文件和其他某个地方文件的异同。<br>如果不加任何commit，即使用<code>git diff -- a.txt</code>比较的是当前工作区中的<code>a.txt</code>和暂存区中的<code>a.txt</code>的异同。<br>如果加了commit，即使用<code>git diff HEAD -- a.txt</code>比较的是当前工作区中的<code>a.txt</code>和HEAD对应提交中的<code>a.txt</code>的异同，当然，这个commit可以是其他能代表一次commit的形式：commit对应的哈希值、一次tag等等。<br><code>[&lt;path&gt;…]</code>的意思是后面可以跟多个文件，以比较多个文件之间的差别。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​]</span><br></pre></td></tr></table></figure></p>
+<p>这种形式用来比较当前暂存区的文件和其他某个地方文件的异同，这个命令和上面的命令唯一的区别就是这个命令比较的是暂存区的文件，而上个命令比较的是工作区中的文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​]</span><br></pre></td></tr></table></figure></p>
+<p>由这个命令长的样子可以知道，这个命令比较的是两个提交中的文件的异同。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff [options] &lt;blob&gt; &lt;blob&gt;</span><br></pre></td></tr></table></figure></p>
+<p>同理，根据命令的形式可知，这个命令用来比较Git仓库中两个特定的blob之间的异同。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt;</span><br></pre></td></tr></table></figure></p>
+<p>用来比较文件系统中两个文件之间的差别，这两个path对应的文件可以不是由git仓库追踪的文件，命令中的<code>[--no-index]</code>建议不要省略，如果省掉了，和第一个diff命令<code>git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]</code>就会产生歧义，其实也还好，只有当path参数是两个，并且path至少有一个不是git仓库所追踪的文件时，才会走这个命令，其他情况走第一个diff命令。</p>
+<h5 id="options参数"><a href="#options参数" class="headerlink" title="options参数"></a>options参数</h5><p>有50个左右的参数可以用来格式化diff的输出，没必要全部熟记于心，捡几个常用的记一下就行，平心而论，git diff命令用的也不是很多，现在的IDE和代码review工具已经将git diff命令封装的很好了，所以，了解一些常见的参数就足足够用啦~</p>
+<blockquote>
+<p>未完待续</p>
+</blockquote>
+
       
     </div>
     
@@ -559,8 +570,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -634,6 +654,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-diff"><span class="nav-number">1.</span> <span class="nav-text">git diff</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#含义及形式"><span class="nav-number">1.1.</span> <span class="nav-text">含义及形式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#options参数"><span class="nav-number">1.2.</span> <span class="nav-text">options参数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
