@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[坚持早起]]></title>
-    <url>%2F2017%2F12%2F13%2F%E5%9D%9A%E6%8C%81%E6%97%A9%E8%B5%B7%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>自言自语</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[Git学习笔记（二）]]></title>
     <url>%2F2017%2F12%2F08%2FGit%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
     <content type="text"><![CDATA[git diff含义及形式用来比较文件之间、提交之间、git blob之间的不同，不同的形式可以达到不同比较的效果。12345git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​]git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​]git diff [options] &lt;blob&gt; &lt;blob&gt;git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt; 所有形式中都有[options]参数，这个参数用来设置展示的样式，在第二部分展开常见参数的叙述。所有形式中的[--]是用来指定要比较的文件的，可以省略，但是，强烈建议：不要省略。如果出现文件名称和某个tag的名字一样，在省略[--]的情况下会造成歧义。下面分别说明这几种形式的含义：1git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​] 这种形式用来比较当前工作区的文件和其他某个地方文件的异同。如果不加任何commit，即使用git diff -- a.txt比较的是当前工作区中的a.txt和暂存区中的a.txt的异同。如果加了commit，即使用git diff HEAD -- a.txt比较的是当前工作区中的a.txt和HEAD对应提交中的a.txt的异同，当然，这个commit可以是其他能代表一次commit的形式：commit对应的哈希值、一次tag等等。[&lt;path&gt;…]的意思是后面可以跟多个文件，以比较多个文件之间的差别。1git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​] 这种形式用来比较当前暂存区的文件和其他某个地方文件的异同，这个命令和上面的命令唯一的区别就是这个命令比较的是暂存区的文件，而上个命令比较的是工作区中的文件。1git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​] 由这个命令长的样子可以知道，这个命令比较的是两个提交中的文件的异同。1git diff [options] &lt;blob&gt; &lt;blob&gt; 同理，根据命令的形式可知，这个命令用来比较Git仓库中两个特定的blob之间的异同。1git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt; 用来比较文件系统中两个文件之间的差别，这两个path对应的文件可以不是由git仓库追踪的文件，命令中的[--no-index]建议不要省略，如果省掉了，和第一个diff命令git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]就会产生歧义，其实也还好，只有当path参数是两个，并且path至少有一个不是git仓库所追踪的文件时，才会走这个命令，其他情况走第一个diff命令。 options参数有50个左右的参数可以用来格式化diff的输出，没必要全部熟记于心，捡几个常用的记一下就行，平心而论，git diff命令用的也不是很多，现在的IDE和代码review工具已经将git diff命令封装的很好了，所以，了解一些常见的参数就足足够用啦~ 未完待续]]></content>
