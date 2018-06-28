@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Git学习笔记（二）]]></title>
-    <url>%2F2017%2F12%2F08%2FGit%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[git diff含义及形式用来比较文件之间、提交之间、git blob之间的不同，不同的形式可以达到不同比较的效果。12345git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​]git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​]git diff [options] &lt;blob&gt; &lt;blob&gt;git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt; 所有形式中都有[options]参数，这个参数用来设置展示的样式，在第二部分展开常见参数的叙述。所有形式中的[--]是用来指定要比较的文件的，可以省略，但是，强烈建议：不要省略。如果出现文件名称和某个tag的名字一样，在省略[--]的情况下会造成歧义。下面分别说明这几种形式的含义：1git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​] 这种形式用来比较当前工作区的文件和其他某个地方文件的异同。如果不加任何commit，即使用git diff -- a.txt比较的是当前工作区中的a.txt和暂存区中的a.txt的异同。如果加了commit，即使用git diff HEAD -- a.txt比较的是当前工作区中的a.txt和HEAD对应提交中的a.txt的异同，当然，这个commit可以是其他能代表一次commit的形式：commit对应的哈希值、一次tag等等。[&lt;path&gt;…]的意思是后面可以跟多个文件，以比较多个文件之间的差别。1git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;…​] 这种形式用来比较当前暂存区的文件和其他某个地方文件的异同，这个命令和上面的命令唯一的区别就是这个命令比较的是暂存区的文件，而上个命令比较的是工作区中的文件。1git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;…​] 由这个命令长的样子可以知道，这个命令比较的是两个提交中的文件的异同。1git diff [options] &lt;blob&gt; &lt;blob&gt; 同理，根据命令的形式可知，这个命令用来比较Git仓库中两个特定的blob之间的异同。1git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt; 用来比较文件系统中两个文件之间的差别，这两个path对应的文件可以不是由git仓库追踪的文件，命令中的[--no-index]建议不要省略，如果省掉了，和第一个diff命令git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;…​]就会产生歧义，其实也还好，只有当path参数是两个，并且path至少有一个不是git仓库所追踪的文件时，才会走这个命令，其他情况走第一个diff命令。 options参数有50个左右的参数可以用来格式化diff的输出，没必要全部熟记于心，捡几个常用的记一下就行，平心而论，git diff命令用的也不是很多，现在的IDE和代码review工具已经将git diff命令封装的很好了，所以，了解一些常见的参数就足足够用啦~ 未完待续]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Maven学习笔记（一）]]></title>
-    <url>%2F2017%2F12%2F06%2FMaven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>Maven</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Git学习笔记（一）]]></title>
-    <url>%2F2017%2F12%2F06%2FGit%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[说在前面网上有各种学习Git的教程，而且有的教程很详细，自己之前学过一些Git相关的教程，但是都没有系统地学一次，我的想法是：对于Git这样的工具而言，先学习基本的用法和实现原理，一些不常见的命令到用到的时候学一下就行，所以可以不系统的学完所有的命令。感觉每天搬砖，日复一日，没什么意思，本着学习才是硬道理的想法，就想系统的学习一下Git，于是就将学习过程中的点都记下来，写成《Git学习笔记》一系列文章。 Git简介Git的历史、Git的来源与演变，详见维基百科，Git是一个很有用也很好用的工具，Git可以使很多工作变得轻而易举，所以学习Git是很重要的，也是很有必要的。如果你有时间，可以遛一下这些文章，权当温故而知新，说不定有新的见解，如果有错误的地方，还望不吝指正呀~ Git的作用一句话：版本控制工具。兹要是平常工作中涉及到版本管理，就应该考虑使用Git来进行版本控制。除了开发工作外，其他的职位也总是会涉及到版本管理的，譬如，一版产品可能有不同的设计原型，不同的原型之间可能是演进、合并的关系，如何追踪各个原型之间的演进关系？毕业论文改稿，写了一版又一版，版与版之间有哪些差别，如何能很好的定位这些差别，进而更好的优化论文的结构和内容？等等，总之，学会使用Git，走遍天下都不怕。废话到此为止，开始正文。]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[匿名内部类或Lambda表达式使用局部变量]]></title>
     <url>%2F2017%2F11%2F27%2F%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB%E6%88%96Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BD%BF%E7%94%A8%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%2F</url>
     <content type="text"><![CDATA[引言匿名内部类或Lambda表达式使用外部局部变量时，要求这些局部变量必须是由final的，虽然Java8的lambda表达式使用的外部局部变量可以没有final修饰，但是该变量和加了final修饰的变量一样，不能在声明后被修改，为什么？ 代码示例用于构造匿名内部类的Fly接口：12345678package anonymouseInnerClass;/** * Created by hongshuai.zhang on 2017/11/27 下午1:31 */public interface Fly &#123; void fly();&#125; 包含main方法的主类Runner：123456789101112131415161718package anonymouseInnerClass;/** * Created by hongshuai.zhang on 2017/11/27 下午1:31 */public class Runner &#123; public static void main(String[] args) &#123; final String name = "goose"; final int meters = 1; Fly goose = new Fly() &#123; @Override public void fly() &#123; System.out.println(name + " can fly " + meters + " meters."); &#125; &#125;; goose.fly(); &#125;&#125; 运行结果如下：1goose can fly 1 meters. 如果去掉了Runner类main方法中的两个局部变量的final修饰符，编译报错，错误内容为：12Error:(12, 28) java: 从内部类中访问本地变量name; 需要被声明为最终类型Error:(12, 49) java: 从内部类中访问本地变量meters; 需要被声明为最终类型 如果去掉了两个final修饰符，但是将匿名内部类的写法换成了Lambda表达式的方式，即：1Fly goose = () -&gt; System.out.println(name + " can fly " + meters + " meters."); 程序也是能正常运行的，但是如果在Lambda中修改了这两个变量的值，譬如：1234Fly goose = () -&gt; &#123; name = "bird"; System.out.println(name + " can fly " + meters + " meters."); &#125;; 程序会报错：1Error:(11, 7) java: 无法为最终变量name分配值 根据这个错误提示，可以得出：lambda表达式中使用的局部变量可以不用final修饰只是形式上的改变，编译后，这些变量还是当做final变量来对待的。综上，无论匿名内部类还是lambda表达式中使用外部局部变量时，要求局部变量必须是final的，为什么呢？ 原因生命周期 mismatch我们知道，在方法内部定义的局部变量，其生命周期和方法的生命周期一样，随着方法的出栈而销毁，但是匿名内部类和lambda表达式属于对象，其生命周期由JVM管理，而且很多情况下，匿名内部类或者lambda表达式作为方法的返回值使用，这就导致了匿名内部类（或lambda表达式）的生命周期和局部变量的生命周期不一致，为了保证方法出栈后，匿名内部类或者lambda表达式仍能使用局部变量，Java将局部变量浅拷贝了一份给匿名内部类，并使之作为匿名内部类的成员变量使用。噢，对了，匿名内部类在编译后，会生成一个单独的字节码文件，上文Runner类中goose内部类的字节码文件反编译后如下：12345678final class Runner$1 implements Fly &#123; Runner$1() &#123; &#125; public void fly() &#123; System.out.println("goose can fly 1 meters."); &#125;&#125; 我用的是JDK1.8，编译和反编译后发现，编译后name和meters变量直接当做常量来使用了，没有体现出来上文解释的那样：局部变量被copy一份给匿名内部类，并以内部类的成员变量的形式存在。因此，编写了新的Runner类,其源码和反编译内容如下：12345678910111213141516171819202122232425import java.util.Arrays;import java.util.List;/** * Created by hongshuai.zhang on 2017/11/27 下午9:29 */public class Runner &#123; public static void main(String[] args) &#123; List&lt;String&gt; birds = Arrays.asList(new String[]&#123; "bird", "goose" &#125;); Fly goose = new Fly() &#123; @Override public void fly() &#123; for (String bird : birds) &#123; System.out.println(bird + "can fly."); &#125; &#125; &#125;; goose.fly(); &#125;&#125; 123456789101112131415161718192021import java.util.Iterator;import java.util.List;final class Runner$1 implements Fly &#123; List val$birds; //IDEA反编译没有展示出来，为了增加理解，手动加上的 Runner$1(List var1) &#123; this.val$birds = var1; &#125; public void fly() &#123; Iterator var1 = this.val$birds.iterator(); while(var1.hasNext()) &#123; String bird = (String)var1.next(); System.out.println(bird + "can fly."); &#125; &#125;&#125; 由字节码分析可知，局部变量通过构造器函数传递给了匿名内部类的成员变量，由此可以解决局部变量和匿名内部类或labmda表达式之间生命周期mismatch的问题 必须final么？当然了，局部变量被浅拷贝了一份到匿名内部类（或lambda表达式）中，因此为了保证两者数据的一致性，就得强制限制匿名内部类或lambda表达式）使用的局部变量必须是final的，即不能在匿名内部类或者匿名内部类外对局部变量进行赋值，否则会导致匿名内部类中的变量和内部类外的变量数据不一致的问题。本来就是同一个变量，却有两个不同的值，在语义上是说不过去哒~ 彩蛋通过foreach循环的反编译知道，foreach和迭代器在编译后是一个东西，只是编码上foreach更方便，这也是为什么只有实现了Iterable接口的类才能使用foreach循环~ 以上。]]></content>
